@@ -2,6 +2,9 @@ package com.lessons.springilmiofotoalbum.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "photos")
 public class Photo {
@@ -21,7 +24,13 @@ public class Photo {
 
     private boolean isPost = true;
 
-
+    @ManyToMany
+    @JoinTable(
+            name = "category_photo",
+            joinColumns = @JoinColumn(name = "photo_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private List<Category> categories = new ArrayList<>();
 
     // Getter____________________________
 
@@ -45,6 +54,10 @@ public class Photo {
         return isPost;
     }
 
+    public List<Category> getCategories() {
+        return categories;
+    }
+
     // setters____________________________
 
     public void setId(Integer id) {
@@ -65,5 +78,9 @@ public class Photo {
 
     public void setPost(boolean post) {
         isPost = post;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 }

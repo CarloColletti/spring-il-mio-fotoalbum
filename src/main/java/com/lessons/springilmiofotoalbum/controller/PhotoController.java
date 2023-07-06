@@ -21,7 +21,7 @@ public class PhotoController {
         //prendo la lista delle foto
         List<Photo> photos = photoRepository.findAll();
         //le inserisco nel model
-        model.addAttribute("photo", photos);
+        model.addAttribute("photos", photos);
         return "/photo/index";
     }
 

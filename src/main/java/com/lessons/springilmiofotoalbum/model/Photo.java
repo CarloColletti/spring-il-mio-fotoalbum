@@ -22,6 +22,7 @@ public class Photo {
     @Column(nullable = false, unique = true)
     private String url;
 
+    @Column
     private boolean isPost = true;
 
     @ManyToMany

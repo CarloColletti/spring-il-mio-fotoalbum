@@ -3,9 +3,11 @@ package com.lessons.springilmiofotoalbum.controller;
 import com.lessons.springilmiofotoalbum.model.Photo;
 import com.lessons.springilmiofotoalbum.repository.PhotoRepository;
 import com.lessons.springilmiofotoalbum.service.PhotoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,7 +46,10 @@ public class PhotoController {
     }
 
     @PostMapping("/create")
-    public String store(@ModelAttribute("photo") Photo formPhoto){
+    public String store(@Valid @ModelAttribute("photo") Photo formPhoto, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()){
+            model.addAttribute("photo", photoRepository);
+        }
         photoRepository.save(formPhoto);
         return "redirect:/photo";
     }

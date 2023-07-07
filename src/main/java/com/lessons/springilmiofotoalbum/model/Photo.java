@@ -1,6 +1,7 @@
 package com.lessons.springilmiofotoalbum.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +14,12 @@ public class Photo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotBlank(message = "Il titolo non può essere vuoto")
     @Column(nullable = false)
     private String title;
 
     @Lob
+    @NotBlank(message = "La descrizione non può essere vuota")
     private String description;
 
     @Column(nullable = false) //da rimetere unique quando si va a gestire

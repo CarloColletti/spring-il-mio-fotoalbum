@@ -7,6 +7,21 @@
     <div th:replace="~{/fragments/navbar :: navbar}"></div>
     <div class="container">
         <h1 th:text="${photo.title}"></h1>
+        <div class="row">
+            <!-- img frame  -->
+            <div class="col-8 p-3 bgp-blue rounded-5">
+                <img th:src="${photo.url}" alt="${photo.title}" class="img-fluid rounded-4">
+            </div>
+            <!-- detail frame  -->
+            <div class="col-4">
+                <h2>Dettaglio dell'immagine</h2>
+                <ul>
+                    <li>Titolo: <span th:text="${photo.title}"></span></li>
+                    <li>Descrizione: <span th:text="${photo.description}"></span></li>
+                    <li>categories(da fare):</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>

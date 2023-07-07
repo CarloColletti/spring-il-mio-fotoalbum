@@ -23,7 +23,7 @@ public class Photo {
     private String url;
 
     @Column
-    private boolean isPost = true;
+    private boolean isPost;
 
     @ManyToMany
     @JoinTable(

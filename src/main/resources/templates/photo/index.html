@@ -4,10 +4,13 @@
 <body>
     <div th:replace="~{/fragments/navbar :: navbar}"></div>
     <div class="container">
-        <h1>
-            Lista delle foto:
-        </h1>
         <div class="row">
+            <h1>
+                Lista delle foto:
+            </h1>
+            <div class="col-12 py-3 d-flex justify-content-end">
+                <a th:href="@{/photo/create}" class="btn btn-success">Aggiungi una nuova canzone</a>
+            </div>
             <table class="table">
                 <thead>
                     <tr>

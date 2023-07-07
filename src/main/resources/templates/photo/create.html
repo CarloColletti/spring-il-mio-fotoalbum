@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/fragments/head :: head('Photo List')}"></head>
+<body>
+    <div th:replace="~{/fragments/navbar :: navbar}"></div>
+    <h1>
+        ciao create
+    </h1>
+
+    <main>
+
+        <div class="container">
+            <form
+                    th:action="@{/photo/create}"
+                    th:object="${photo}"
+                    method="post"
+                    id="photo-form"
+                    class="d-flex"
+            >
+                <div class="row">
+                    <div class="col-12 py-3">
+                        <label class="form-label" for="title">Titolo</label>
+                        <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="Es: Vento d'estate">
+                    </div>
+                    <div class="col-12 py-3">
+                        <label class="form-label" for="description">Piccola Descrizione</label>
+                        <input type="text" id="description" th:field="*{description}" class="form-control" placeholder="Es: vento struggente di viole...">
+                    </div>
+                    <div class="col-12 py-3">
+                        <label class="form-label" for="url">link immagine</label>
+                        <input type="url" id="url" th:field="*{url}" class="form-control">
+                    </div>
+
+                        <!--DA METTERE LE CATEGORIES-->
+                    <div class="col-12 py-3">
+                        <button class="btn btn-success" type="submit">Salva</button>
+                        <a class="btn btn-danger" th:href="@{/photo}">Cancella</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>>

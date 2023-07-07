@@ -23,10 +23,10 @@
                         </th>
                         <td th:text="${photo.title}"></td>
                         <td th:text="${photo.description}"></td>
-                        <!-- <td>
-                            <a th:href="@{|/pizza/${pizza.id}|}"><i class="fa-solid fa-circle-info"></i></a>
-                            <a th:href="@{|/pizza/edit/${pizza.id}|}"><i class="fa-solid fa-file-pen"></i></a>
-                        </td> -->
+                        <td>
+                            <a th:href="@{|/photo/${photo.id}|}"><i class="fa-solid fa-circle-info"></i></a>
+                            <!-- <a th:href="@{|/photo/edit/${photo.id}|}"><i class="fa-solid fa-file-pen"></i></a> -->
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -19,7 +19,7 @@ public class Photo {
     @Lob
     private String description;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false) //da rimetere unique quando si va a gestire
     private String url;
 
     @Column

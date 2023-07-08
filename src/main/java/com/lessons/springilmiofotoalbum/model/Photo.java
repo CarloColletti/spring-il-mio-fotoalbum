@@ -26,7 +26,7 @@ public class Photo {
     private String url;
 
     @Column
-    private boolean isPost;
+    private boolean posted;
 
     @ManyToMany
     @JoinTable(
@@ -54,8 +54,8 @@ public class Photo {
         return url;
     }
 
-    public boolean isPost() {
-        return isPost;
+    public boolean isPosted() {
+        return posted;
     }
 
     public List<Category> getCategories() {
@@ -80,8 +80,8 @@ public class Photo {
         this.url = url;
     }
 
-    public void setPost(boolean post) {
-        isPost = post;
+    public void setPosted(boolean posted) {
+        this.posted = posted;
     }
 
     public void setCategories(List<Category> categories) {

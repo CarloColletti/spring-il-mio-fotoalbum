@@ -1,6 +1,7 @@
 package com.lessons.springilmiofotoalbum.controller;
 
 import com.lessons.springilmiofotoalbum.model.Photo;
+import com.lessons.springilmiofotoalbum.repository.CategoryRepository;
 import com.lessons.springilmiofotoalbum.repository.PhotoRepository;
 import com.lessons.springilmiofotoalbum.service.PhotoService;
 import jakarta.validation.Valid;
@@ -20,6 +21,8 @@ public class PhotoController {
     @Autowired
     private PhotoService photoService;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     //INDEX -> lista delle foto_____________
     @GetMapping
@@ -42,7 +45,8 @@ public class PhotoController {
     //create -> creiamo un nuovo oggetto foto_____________
     @GetMapping("/create")
     public String create(Model model) {
-        model.addAttribute(new Photo());
+        model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("photo", new Photo());
         return "/photo/create";
     }
 

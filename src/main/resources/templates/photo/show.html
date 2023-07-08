@@ -18,9 +18,15 @@
                 <ul>
                     <li>Titolo: <span th:text="${photo.title}"></span></li>
                     <li>Descrizione: <span th:text="${photo.description}"></span></li>
-                    <li>categories(da fare):</li>
+                    <li>
+                        Categorie:
+                        <ul>
+                            <li th:each="cat : ${photo.categories}">[[${cat.name}]]</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
+            
         </div>
     </div>
 </body>

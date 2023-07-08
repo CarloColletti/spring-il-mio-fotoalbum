@@ -20,6 +20,7 @@ public class PhotoController {
     @Autowired
     private PhotoService photoService;
 
+
     //INDEX -> lista delle foto_____________
     @GetMapping
     public String index(Model model) {

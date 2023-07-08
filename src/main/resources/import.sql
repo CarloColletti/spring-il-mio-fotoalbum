@@ -23,3 +23,16 @@ INSERT INTO `photos` (`id`, `title`, `description`, `url`, `is_post`) VALUES (NU
 INSERT INTO `photos` (`id`, `title`, `description`, `url`, `is_post`) VALUES (NULL, 'Magia delle onde', 'Spiaggia deserta, onde schiumose, brezza salata', 'https://img.freepik.com/free-photo/big-waves-stormy-ocean-with-sun-rays-pouring-through-water-sunrise-sunset-clouds-background_90220-1129.jpg?w=1380&t=st=1688657078~exp=1688657678~hmac=e3e850d04b6a68fb22f8f012fd87e57786f77a91bb435a8e3b89251fd0115fd9', TRUE);
 
 -- INSERT INTO `photos` (`id`, `title`, `description`, `url`, `isPost`) VALUES (NULL, '', '', '', TRUE);
+
+
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '1'), ('2', '1'), ('3', '1'), ('4', '1'), ('5', '1'), ('6', '1');
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '2'), ('2', '2'), ('3', '2'), ('4', '2'), ('5', '2'), ('6', '2');
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '3'), ('2', '3'), ('3', '3'), ('4', '3'), ('5', '3'), ('6', '3');
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '4'), ('2', '4'), ('3', '4'), ('4', '4'), ('5', '4'), ('6', '4');
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '5'), ('2', '5'), ('3', '5'), ('4', '5'), ('5', '5'), ('6', '5');
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '6'), ('2', '6'), ('3', '6'), ('4', '6'), ('5', '6'), ('6', '6');
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '7'), ('2', '7'), ('3', '7'), ('4', '7'), ('5', '7'), ('6', '7');
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '8'), ('2', '8'), ('3', '8'), ('4', '8'), ('5', '8'), ('6', '8');
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '9'), ('2', '9'), ('3', '9'), ('4', '9'), ('5', '9'), ('6', '9');
+INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '10'), ('2', '10'), ('3', '10'), ('4', '10'), ('5', '10'), ('6', '10');
+

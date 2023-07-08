@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -47,11 +48,11 @@ public class PhotoController {
     public String create(Model model) {
         model.addAttribute("categories", categoryRepository.findAll());
         model.addAttribute("photo", new Photo());
-        return "/photo/create";
+        return "/photo/edit";
     }
 
     @PostMapping("/create")
-    public String store(@Valid @ModelAttribute("photo") Photo formPhoto, BindingResult bindingResult, Model model) {
+    public String store(@Valid @ModelAttribute("photo") Photo formPhoto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
         if (bindingResult.hasErrors()){
             model.addAttribute("photo", photoRepository);
         }
@@ -59,7 +60,25 @@ public class PhotoController {
         return "redirect:/photo";
     }
 
-    //metodi___________________________________
+    //edit -> modifichiamo un elemento gia presente_____________
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model){
+        Photo photo = photoService.getPhotoById(id);
+        model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("photo", photo);
+        return "/photo/edit";
+    };
+
+    @PostMapping("/edit/{id}")
+    public String toEdit(@PathVariable Integer id, Model model, @ModelAttribute("photo") Photo formPhoto) {
+        Photo photo = photoService.getPhotoById(id);
+        model.addAttribute("photo", photo);
+        //trasferisco i dati non compresi nel form
+        formPhoto.setId(photo.getId());
+        //salvo il resto del form
+        photoRepository.save(formPhoto);
+        return "redirect:/photo";
+    }
 
 
 }

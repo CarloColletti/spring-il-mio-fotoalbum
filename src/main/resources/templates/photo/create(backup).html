@@ -27,7 +27,13 @@
                                 <!-- title  -->
                                 <div class="col-12 py-3">
                                     <label class="form-label" for="title">Titolo</label>
-                                    <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="Es: Vento d'estate">
+                                    <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="Es: Vento d'estate" th:errorClass="is-invalid">
+                                    <div class="form-text">Title must not be blank</div>
+                                    <div th:if="${#fields.hasErrors('title')}" class="invalid-feedback">
+                                        <ul>
+                                            <li th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <!-- description -->
                                 <div class="col-12 py-3">

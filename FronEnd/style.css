@@ -1,0 +1,17 @@
+.color-white{
+  color: aliceblue;
+}
+
+.color-personal{
+  background-color: aqua;
+}
+
+.bg-personal-green{
+  background-color: green;
+}
+.bg-personal-white {
+  background-color: aliceblue;
+}
+.bg-personal-real-white {
+  background-color: #ffffff;
+}

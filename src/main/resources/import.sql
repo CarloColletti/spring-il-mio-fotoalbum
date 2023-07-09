@@ -36,3 +36,8 @@ INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '8'), ('2'
 INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '9'), ('2', '9'), ('3', '9'), ('4', '9'), ('5', '9'), ('6', '9');
 INSERT INTO `category_photo` (`category_id`, `photo_id`) VALUES ('1', '10'), ('2', '10'), ('3', '10'), ('4', '10'), ('5', '10'), ('6', '10');
 
+-- utenti
+--INSERT INTO `users` (`id`, `email`, `first_name`, `last_name`, `password`) VALUES (NULL, 'user@email.com', 'User', 'User', '{noop}User'), (NULL, 'admin@email.com', 'Admin', 'Admin', '{noop}Admin');
+--INSERT INTO `roles` (`id`, `name`) VALUES (NULL, 'USER'), (NULL, 'ADMIN');
+--INSERT INTO `users_roles` (`user_id`, `role_id`) VALUES ('1', '1'), ('2', '2');
+

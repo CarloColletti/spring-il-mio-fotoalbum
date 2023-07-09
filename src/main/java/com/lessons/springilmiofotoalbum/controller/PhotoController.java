@@ -80,5 +80,21 @@ public class PhotoController {
         return "redirect:/photo";
     }
 
+    //delete -> eliminiamo un elemento_____________
+
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
+        // verifichiamo che esiste il book con quell'id
+        Photo photoToDelete = photoService.getPhotoById(id);
+        // lo cancelliamo
+        photoRepository.delete(photoToDelete);
+//        // aggiungo un messaggio di successo come flashAttribute
+//        redirectAttributes.addFlashAttribute("message",
+//                new AlertMessage(AlertMessageType.SUCCESS,
+//                        "Book " + bookToDelete.getTitle() + " deleted!"));
+        // facciamo la redirect alla lista dei book
+        return "redirect:/photo";
+    }
+
 
 }

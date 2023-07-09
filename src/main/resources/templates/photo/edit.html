@@ -7,7 +7,7 @@
 
         <div class="container">
             <div class="row">
-                <h1 th:text="isEdit ? 'Modifica informazioni foto' : 'Creazione di una nuova foto' "></h1>
+                <h1 th:text="${isEdit ? 'Modifica dati della foto' : 'Crea una nuova foto'}"></h1>
             </div>
             <!-- init form  -->
             <form

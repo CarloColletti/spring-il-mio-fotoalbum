@@ -80,8 +80,8 @@
           <!--end modal for message-->
 
 
-          <!-- init form ricerca  --> <!-- DA FARE FUNZIONE-->
-          <form @submit.prevent="" class="w-50">
+          <!-- init form ricerca  -->
+          <form @submit.prevent="searchPhotos" class="w-50">
             <div class="input-group">
               <input type="search" name="keyword" class="form-control" placeholder="Search by name" v-model="keyword">
               <button class="btn btn-success" type="submit" id="button-addon2">
@@ -96,7 +96,7 @@
   
         <!-- init card -->
         <div class="row">
-          <div class="col-4 p-2" v-for="photo in photos">
+          <div class="col-4 p-2" v-for="photo in filterPhotos()">
             <div class="card rounded-5 bg-personal-real-white">
               <img :src="photo.url" class="rounded-top-5" :alt="photo.title">
               <div class="card-body">

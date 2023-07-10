@@ -6,7 +6,9 @@ createApp({
             //url per api
             url: "http://localhost:8080/api/v1/",
             //lista foto
-            photos: [], //lista foto
+            photos: [],
+            // Input di ricerca dell'utente
+            keyword: "",
         }
     },
     
@@ -19,6 +21,16 @@ createApp({
                 console.log(error);
             }
         },
+
+        filterPhotos() {
+            if (this.keyword === "") {
+                return this.photos; // Restituisci tutte le foto se la keyword è vuota
+            } else {
+                const searchTerm = this.keyword.toLowerCase();
+                return this.photos.filter((photo) =>
+            photo.title.toLowerCase().includes(searchTerm)
+            )}
+        }
         
     },
 

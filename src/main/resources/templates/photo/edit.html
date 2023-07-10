@@ -22,12 +22,10 @@
                     <div class="col-8">
                         <div class="container">
                             <div class="row">
-
                                 <!-- title  -->
                                 <div class="col-12 py-3">
                                     <label class="form-label" for="title">Titolo</label>
                                     <input type="text" id="title" th:field="*{title}" class="form-control" placeholder="Es: Vento d'estate" th:errorClass="is-invalid">
-                                    <div class="form-text">Title must not be blank</div>
                                     <div th:if="${#fields.hasErrors('title')}" class="invalid-feedback">
                                         <ul>
                                             <li th:each="err : ${#fields.errors('title')}" th:text="${err}"></li>
@@ -37,12 +35,22 @@
                                 <!-- description -->
                                 <div class="col-12 py-3">
                                     <label class="form-label" for="description">Piccola Descrizione</label>
-                                    <input type="text" id="description" th:field="*{description}" class="form-control" placeholder="Es: vento struggente di viole...">
+                                    <input type="text" id="description" th:field="*{description}" class="form-control" placeholder="Es: vento struggente di viole..." th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('description')}" class="invalid-feedback">
+                                        <ul>
+                                            <li th:each="err : ${#fields.errors('description')}" th:text="${err}"></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <!-- url image  -->
                                 <div class="col-12 py-3">
                                     <label class="form-label" for="url">link immagine</label>
-                                    <input type="url" id="url" th:field="*{url}" class="form-control">
+                                    <input type="url" id="url" th:field="*{url}" class="form-control" th:errorClass="is-invalid">
+                                    <div th:if="${#fields.hasErrors('url')}" class="invalid-feedback">
+                                        <ul>
+                                            <li th:each="err : ${#fields.errors('url')}" th:text="${err}"></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="col-4">
                                     <h3>Categories</h3>

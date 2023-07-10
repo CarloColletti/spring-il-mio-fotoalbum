@@ -22,7 +22,8 @@ public class Photo {
     @NotBlank(message = "La descrizione non può essere vuota")
     private String description;
 
-    @Column(nullable = false) //da rimetere unique quando si va a gestire
+    @Column(nullable = false , unique = true)
+    @NotBlank(message = "devi inserire una immagine")
     private String url;
 
     @Column

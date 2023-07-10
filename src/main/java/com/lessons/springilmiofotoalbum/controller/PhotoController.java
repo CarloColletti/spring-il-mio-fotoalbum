@@ -53,11 +53,16 @@ public class PhotoController {
 
     @PostMapping("/create")
     public String store(@Valid @ModelAttribute("photo") Photo formPhoto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
-        if (bindingResult.hasErrors()){
-            model.addAttribute("photo", photoRepository);
+
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("categories", categoryRepository.findAll());
+            return "/photo/edit";
         }
+
         photoRepository.save(formPhoto);
         return "redirect:/photo";
+
+
     }
 
     //edit -> modifichiamo un elemento gia presente_____________
@@ -70,11 +75,16 @@ public class PhotoController {
     };
 
     @PostMapping("/edit/{id}")
-    public String toEdit(@PathVariable Integer id, Model model, @ModelAttribute("photo") Photo formPhoto) {
+    public String toEdit(@PathVariable Integer id,@Valid @ModelAttribute("photo") Photo formPhoto, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
         Photo photo = photoService.getPhotoById(id);
-        model.addAttribute("photo", photo);
         //trasferisco i dati non compresi nel form
         formPhoto.setId(photo.getId());
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult);
+            model.addAttribute("categories", categoryRepository.findAll());
+            return "/photo/edit";
+        }
+
         //salvo il resto del form
         photoRepository.save(formPhoto);
         return "redirect:/photo";
@@ -88,11 +98,6 @@ public class PhotoController {
         Photo photoToDelete = photoService.getPhotoById(id);
         // lo cancelliamo
         photoRepository.delete(photoToDelete);
-//        // aggiungo un messaggio di successo come flashAttribute
-//        redirectAttributes.addFlashAttribute("message",
-//                new AlertMessage(AlertMessageType.SUCCESS,
-//                        "Book " + bookToDelete.getTitle() + " deleted!"));
-        // facciamo la redirect alla lista dei book
         return "redirect:/photo";
     }
 

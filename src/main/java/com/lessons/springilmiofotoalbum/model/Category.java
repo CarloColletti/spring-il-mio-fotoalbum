@@ -2,6 +2,7 @@ package com.lessons.springilmiofotoalbum.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +18,11 @@ public class Category {
     private Integer id;
 
     @Column(nullable = false, unique = true)
+    @NotBlank(message = "Il nome non può essere vuoto")
     private String name;
 
     @Lob
+    @NotBlank(message = "La Descrizione non può essere vuota")
     private String description;
 
     @JsonIgnore
